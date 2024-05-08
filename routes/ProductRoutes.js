@@ -6,7 +6,7 @@ const router = express.Router(); //Acceder al objeto de ruteo
 router.get("/products", async (request, response) => { //La ruta se agrega /api/products/
     try {
         const products = await ProductModel.find({}); //Este objeto es importado de un archivo en la parte de arriba. El método es un método para hacer query de mongoose
-        //.find Enceuntra y obtiene todos los documento que coincidan con un selector definido. Si no hya selector. Tiene forma de objeto tipo JSON
+        //.find Enceuntra y obtiene todos los documentos que coincidan con un selector definido. Si no hay selector, selecciona todos. Tiene forma de objeto tipo JSON
         response.send(products);
     } catch (error) {
         response.status(500).send({ error });
